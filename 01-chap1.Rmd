@@ -105,10 +105,11 @@ dim(flights)
 names(flights)
 ```
 
-Another good idea is to take a look at the dataset in table form.  With this dataset having more than 20,000 rows, we won't explicitly show the results of the command here. I recommend you enter the command into the Console **_after_** you have run the **R** chunks above to load the data into **R**.
+Another good idea is to take a look at the dataset in table form. You can do this either by evaluating just the name of the dataset in an **R** chunk or by calling the `View()` function on the data. It isn't recommended to include code which evaluates just the dataset when knitting documents though.  With this dataset having more than 20,000 rows, we won't explicitly show the results of the command here. I recommend you enter the command into the Console **_after_** you have run the **R** chunks above to load the data into **R**.
 
 ```{r view_flights, eval=FALSE}
-View(flights)
+View(flights) # View data in a separate window
+flights # Or you view just a few rows in this document
 ```
 
 While not required, it is highly recommended you use the `dplyr` package to manipulate and summarize your data set as needed.  It uses a syntax that is easy to understand using chaining operations.  Below I've created a few examples of using `dplyr` to get information about the Portland flights in 2014.  You will also see the use of the `ggplot2` package, which produces beautiful, high-quality academic visuals.
@@ -127,7 +128,7 @@ if (length(new.pkg)) {
   install.packages(new.pkg, repos = "https://cran.rstudio.com")
 }
 # Load packages
-library(thesisdown)
+library(bookdown) #library(thesisdown) # I changed this to bookdown since that's what you download above
 library(dplyr)
 library(ggplot2)
 library(knitr)
@@ -137,7 +138,7 @@ library(knitr)
 
 The example we show here does the following:
 
-- Selects only the `carrier_name` and `arr_delay` from the `flights` dataset and then assigns this subset to a new variable called `flights2`. 
+- Selects only the `carrier_name` and `arr_delay` columns from the `flights` dataset and then assigns this subset to a new variable called `flights2`. 
 
 - Using `flights2`, we determine the largest arrival delay for each of the carriers.
 
@@ -147,6 +148,7 @@ flights2 <- flights %>%
 max_delays <- flights2 %>%
   group_by(carrier_name) %>%
   summarize(max_arr_delay = max(arr_delay, na.rm = TRUE))
+#max_delays # You can view the dataset below the R chunk by uncommenting this
 ```
 
 A useful function in the `knitr` package for making nice tables in _R Markdown_ is called `kable`.  It is much easier to use than manually entering values into a table by copying and pasting values into Excel or LaTeX.  This again goes to show how nice reproducible documents can be! (Note the use of `results="asis"`, which will produce the table instead of the code to create the table.)  The `caption.short` argument is used to include a shorter title to appear in the List of Tables.

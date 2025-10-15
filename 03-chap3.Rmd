@@ -51,7 +51,7 @@ if (!require(bookdown)) {
     )
   }
 }
-if (!require(thesisdown)) {
+if (!require(thesisdown)) { # This will error if you don't have thesisdown installed
   if (params$`Install needed packages for {thesisdown}`) {
     remotes::install_github("ismayc/thesisdown")
   } else {

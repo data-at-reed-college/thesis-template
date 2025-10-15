@@ -1,1 +1,5 @@
 01-chap*_*
+*.Rproj
+thesis.log
+thesis.tex
+_bookdown_files/

@@ -83,7 +83,7 @@ The \noindent command below does what you'd expect:  it forces the current line/
 
 \noindent Subscript: $\mathrm{CH_4}$
 
-To stack numbers or letters as in $\mathrm{Fe_2^{2+}}$, the subscript is defined first, and then the superscript is defined.
+To stack numbers or letters as in $\mathrm{Fe_2^{2+}}$, the subscript is defined first, and then the superscript is defined. These can be defined in any order though.
 
 \noindent Bullet: CuCl $\bullet$ $\mathrm{7H_{2}O}$
 
