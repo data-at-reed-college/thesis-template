@@ -3,3 +3,11 @@
 thesis.log
 thesis.tex
 _bookdown_files/
+.Rproj.user
+.DS_Store
+.Rhistory
+_book/
+thesis_cache/
+thesis_files/
+index.pdf
+index.tex
